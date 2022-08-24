@@ -1,0 +1,234 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "ESP Middleware API",
+    "version": "5.5.1",
+    "title": "ESP middleware API Information",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "schemes": ["http"],
+  "host": "localhost:3000",
+  "basePath": "/",
+  "paths": {
+    "/campaigns": {
+      "get": {
+        "summary": "Get all the Campaigns",
+        "description": "Get all the Campaigns",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "AllcampaignDetails": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a Campaign",
+        "summary": "Create a Campaign",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Provide all the Campaign Details",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "items": {
+                "properties": {
+                  "campaignName": {
+                    "type": "string",
+                    "example": "Campaign One"
+                  },
+                  "technologyType": {
+                    "type": "string",
+                    "example": "SQL"
+                  },
+                  "campaignDescription": {
+                    "type": "string",
+                    "example": "Campaign Three Description"
+                  },
+                  "emailDistribution": {
+                    "type": "string",
+                    "example": "Email Distribution Campaign Three "
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "example": "Amit"
+                  },
+                  "createdDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  },
+                  "startDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  },
+                  "endDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Campaign Created"
+          }
+        }
+      }
+    },
+    "/campaigns/{id}": {
+      "get": {
+        "summary": "Get Campaign by ID",
+        "description": "Get Campaign by ID",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "campaignId": {
+                    "type": "string",
+                    "example": "4fecfcbb-76bc-4473-8784-242b19474484"
+                  },
+                  "campaignName": {
+                    "type": "string",
+                    "example": "Campaign One"
+                  },
+                  "technologyType": {
+                    "type": "string",
+                    "example": "SQL"
+                  },
+                  "campaignDescription": {
+                    "type": "string",
+                    "example": "Campaign Three Description"
+                  },
+                  "emailDistribution": {
+                    "type": "string",
+                    "example": "Email Distribution Campaign Three "
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "example": "Amit"
+                  },
+                  "createdDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  },
+                  "startDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  },
+                  "endDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Campaign by ID",
+        "description": "Update Campaign by ID",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Campaign Fields that needs to be Updated",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "campaignId": {
+                    "type": "string",
+                    "example": "4fecfcbb-76bc-4473-8784-242b19474484"
+                  },
+                  "campaignName": {
+                    "type": "string",
+                    "example": "Campaign One"
+                  },
+                  "technologyType": {
+                    "type": "string",
+                    "example": "SQL"
+                  },
+                  "campaignDescription": {
+                    "type": "string",
+                    "example": "Campaign Three Description"
+                  },
+                  "emailDistribution": {
+                    "type": "string",
+                    "example": "Email Distribution Campaign Three "
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "example": "Amit"
+                  },
+                  "createdDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  },
+                  "startDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  },
+                  "endDate": {
+                    "type": "date",
+                    "example": "2022-08-22T03:44:34.000Z"
+                  }
+                }
+              }
+            }
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "Updated Succesfully"
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}
